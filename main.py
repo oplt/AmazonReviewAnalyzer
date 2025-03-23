@@ -41,10 +41,10 @@ def login():
     with open("cookies.json", "r") as file:
         cookies = json.load(file)
         for cookie in cookies:
-            if "domain" not in cookie:
-                cookie["domain"] = ".amazon.com"
-            if "sameSite" not in cookie or cookie["sameSite"] not in ["Strict", "Lax", "None"]:
-                cookie["sameSite"] = "Lax"
+            # if "domain" not in cookie:
+            #     cookie["domain"] = ".amazon.com"
+            # if "sameSite" not in cookie or cookie["sameSite"] not in ["Strict", "Lax", "None"]:
+            #     cookie["sameSite"] = "Lax"
             cookie.pop("expiry", None)
             driver.add_cookie(cookie)
     driver.refresh()
